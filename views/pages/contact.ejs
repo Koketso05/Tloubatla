@@ -1,0 +1,89 @@
+<!-- views/pages/our_story.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+    <script>
+		$(document).ready(function(){
+		    
+		    var name,from,phone,description, text;
+
+		    $("#send_email").click(function(){     
+		        from = $("#emailField").val();
+		        subject = $("#nameField").val();
+		        text = $("#descField").val();
+		        $("#descField").text("Sending E-mail...Please wait");
+		        $.get("http://localhost:3000/contact",{to:to, from:from, subject:subject,text:text},function(data){
+		        
+		        if(data=="sent")
+		        {
+		        	//alert('Email is been sent at " + to + " . Please check inbox !');
+		    		$("#status").empty().html("Email is been sent at " + to + " . Please check inbox !");
+		        }
+
+				});
+		    });
+		});
+	</script>
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    	<div class="container">
+			
+			<div class="row">
+				
+				<div class="col-md-3 col-sm-6 col-xs-12 col2">
+				</div>
+
+				<div class="col-md-6 col-sm-6 col-xs-12 col3">
+
+					<h4>Contact Us <small id="status" >we would like to hear from you</small></h4>
+
+					<form class="form">
+						
+						<div class="form-group has-success">
+							<label for="nameField">Name</label>
+							<input type="text" class="form-control" id="nameField" placeholder="Your Name" />
+						<div>
+
+						<div class="form-group">
+							<label for="emailField">Email</label>
+							<input type="email" class="form-control" id="emailField" placeholder="Your Email" />
+						</div>
+
+						<div class="form-group">
+							<label for="phoneField">Phone</label>
+							<input type="text" class="form-control" id="phoneField" placeholder="Your Phone Number" />
+						</div>
+
+						<div class="form-group">
+							<label for="descField">Description</label>
+							<textarea class="form-control" id="descField" placeholder="Your Comments"></textarea>
+						</div>
+
+						<button type="submit" class="btn btn-primary" id="send_email">Submit</button>
+						<button type="reset" class="btn btn-default">Reset</button>
+
+					</form>
+				</div>
+
+				<div class="col-md-3 col-sm-6 col-xs-12 col3">
+				
+				</div>
+			</div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

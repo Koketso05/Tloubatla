@@ -1,0 +1,20 @@
+{
+  "name": "tuesday_practice",
+  "version": "1.0.0",
+  "description": "just a try",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "koketso",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "express-handlebars": "^3.0.0",
+    "forever": "^0.15.2",
+    "handlebars": "^4.0.5",
+    "mustache": "^2.2.1",
+    "pug": "^2.0.0-beta4",
+    "nodemailer": "^0.7.1"
+  }
+}
