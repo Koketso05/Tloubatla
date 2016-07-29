@@ -10,6 +10,7 @@ var transporter = nodemailer.createTransport('smtps://phahle.koketso@gmail.com:2
 app.set("views", path.resolve(__dirname, "views"));
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+app.use("/public", express.static(__dirname + '/public'));
 
 // index page
 app.get('/', function(req, res) {
